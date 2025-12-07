@@ -103,7 +103,7 @@
     // Request camera access (prefer back camera if available)
     try {
       if (currentStream) {
-        stopStream();
+        stopStream();     
       }
       const constraints = { video: { facingMode: "environment", width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false };
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -198,7 +198,7 @@
     }, (err)=>{
       console.error(err);
       statusEl.textContent = 'Location permission denied or failed: ' + (err.message || err.code);
-    }, { enableHighAccuracy: true, timeout: 60000});
+    }, { enableHighAccuracy: true, timeout: 180000});
   });
 
   // Cleanup when navigating away
